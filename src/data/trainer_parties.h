@@ -3366,25 +3366,32 @@ static const struct TrainerMonItemCustomMoves sParty_Drake[] = {
 
 static const struct TrainerMonItemCustomMoves sParty_Roxanne1[] = {
     {
-    .iv = 100,
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .iv = 255,
+    .lvl = 14,
+    .species = SPECIES_ONIX,
+    .heldItem = ITEM_ORAN_BERRY,
+    .moves = {MOVE_ROCK_SLIDE, MOVE_SLAM, MOVE_IRON_TAIL, MOVE_SANDSTORM}
     },
     {
-    .iv = 100,
-    .lvl = 12,
-    .species = SPECIES_GEODUDE,
-    .heldItem = ITEM_NONE,
-    .moves = {MOVE_TACKLE, MOVE_DEFENSE_CURL, MOVE_ROCK_THROW, MOVE_ROCK_TOMB}
+    .iv = 255,
+    .lvl = 14,
+    .species = SPECIES_SHUCKLE,
+    .heldItem = ITEM_SHELL_BELL,
+    .moves = {MOVE_REST, MOVE_TOXIC, MOVE_DIG, MOVE_PROTECT}
     },
     {
-    .iv = 200,
+    .iv = 255,
+    .lvl = 14,
+    .species = SPECIES_GEODUDE,
+    .heldItem = ITEM_HARD_STONE,
+    .moves = {MOVE_MEGA_PUNCH, MOVE_MAGNITUDE, MOVE_DEFENSE_CURL, MOVE_ROCK_TOMB}
+    },
+    {
+    .iv = 255,
     .lvl = 15,
     .species = SPECIES_NOSEPASS,
-    .heldItem = ITEM_ORAN_BERRY,
-    .moves = {MOVE_BLOCK, MOVE_HARDEN, MOVE_TACKLE, MOVE_ROCK_TOMB}
+    .heldItem = ITEM_SITRUS_BERRY,
+    .moves = {MOVE_THUNDER_WAVE, MOVE_MAGNITUDE, MOVE_SHOCK_WAVE, MOVE_ROCK_TOMB}
     }
 };
 
