@@ -7141,3 +7141,27 @@ u8 *MonSpritesGfxManager_GetSpritePtr(u8 managerId, u8 spriteNum)
         return gfx->spritePointers[spriteNum];
     }
 }
+
+bool8 nuzlockeSpeciesAccepted(u16 species) {
+    u8 type = gSaveBlock2Ptr->nuzlockeType;
+    int i;
+
+    if (type == TYPE_NONE)
+        // All types are accepted
+        return TRUE;
+    if (species == SPECIES_NONE)
+        // One possible base case for recursion
+        return FALSE;
+    if (gSpeciesInfo[species].types[0] == type || gSpeciesInfo[species].types[1] == type)
+        // The species itself has the type
+        return TRUE;
+
+    // Check all target evolutions. If any of them has the type, return TRUE.
+    for (i = 0; i < EVOS_PER_MON; i++)
+    {
+        if (nuzlockeSpeciesAccepted(gEvolutionTable[species][i].targetSpecies))
+            return TRUE;
+    }
+
+    return FALSE;
+}

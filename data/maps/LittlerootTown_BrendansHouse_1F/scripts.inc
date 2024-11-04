@@ -291,6 +291,10 @@ PlayersHouse_1F_Text_IsntItNiceInHere:
 	.string "MOM: See, {PLAYER}?\n"
 	.string "Isn't it nice in here, too?$"
 
+PlayersHouse_1F_Text_DisplayNuzlockeTypeNormal:
+	.string "Nuzlocke type set to NORMAL\n"
+	.string "Are you sure?$"
+
 PlayersHouse_1F_Text_MoversPokemonGoSetClock:
 	.string "The mover's POKéMON do all the work\n"
 	.string "of moving us in and cleaning up after.\l"

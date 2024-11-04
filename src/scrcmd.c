@@ -2305,3 +2305,10 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
     ResetInitialPlayerAvatarState();
     return TRUE;
 }
+
+bool8 ScrCmd_setnuzlocketype(struct ScriptContext *ctx)
+{
+    u8 type = VarGet(ScriptReadByte(ctx));
+    gSaveBlock2Ptr->nuzlockeType = type;
+    return TRUE;
+}

@@ -9,6 +9,7 @@ PlayersHouse_2F_EventScript_BlockStairsUntilClockIsSet::
 
 PlayersHouse_1F_EventScript_EnterHouseMovingIn::
 	msgbox PlayersHouse_1F_Text_IsntItNiceInHere, MSGBOX_DEFAULT
+	call PlayersHouse_1F_EventScript_AskForNuzlockeType
 	applymovement VAR_0x8004, Common_Movement_FacePlayer
 	waitmovement 0
 	call_if_eq VAR_0x8005, MALE, PlayersHouse_1F_EventScript_MomFacePlayerMovingInMale
@@ -21,6 +22,22 @@ PlayersHouse_1F_EventScript_EnterHouseMovingIn::
 	waitmovement 0
 	releaseall
 	end
+
+PlayersHouse_1F_EventScript_AskForNuzlockeType::
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE, FALSE
+	switch VAR_RESULT
+	case 0, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	case 1, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	case 2, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	case 3, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	case 4, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	case 5, PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal
+	return
+
+PlayersHouse_1F_EventScript_ChooseNuzlockeTypeNormal::
+	setnuzlocketype TYPE_NORMAL
+	msgbox PlayersHouse_1F_Text_DisplayNuzlockeTypeNormal
+	return
 
 PlayersHouse_1F_EventScript_MomFacePlayerMovingInMale::
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkInPlaceFasterRight

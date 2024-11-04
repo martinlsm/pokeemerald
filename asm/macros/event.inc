@@ -1729,6 +1729,12 @@
 	.2byte \quantity
 	.endm
 
+    @ Sets the locked type of the Nuzlocke run. If type is set to TYPE_NONE, all types are accepted.
+    .macro setnuzlocketype type:req
+	.byte 0xe3
+    .byte \type
+    .endm
+
 
 @ Supplementary
 

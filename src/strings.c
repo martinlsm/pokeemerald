@@ -1222,6 +1222,25 @@ const u8 gText_BattleArena[] = _("BATTLE ARENA");
 const u8 gText_BattlePike[] = _("BATTLE PIKE");
 const u8 gText_BattlePyramid[] = _("BATTLE PYRAMID");
 
+const u8 gText_NuzlockeNormal[] = _("Normal");
+const u8 gText_NuzlockeFighting[] = _("Fighting");
+const u8 gText_NuzlockeFlying[] = _("Flying");
+const u8 gText_NuzlockePoison[] = _("Poison");
+const u8 gText_NuzlockeGround[] = _("Ground");
+const u8 gText_NuzlockeRock[] = _("Rock");
+const u8 gText_NuzlockeBug[] = _("Bug");
+const u8 gText_NuzlockeGhost[] = _("Ghost");
+const u8 gText_NuzlockeSteel[] = _("Steel");
+const u8 gText_NuzlockeMystery[] = _("Mystery");
+const u8 gText_NuzlockeFire[] = _("Fire");
+const u8 gText_NuzlockeWater[] = _("Water");
+const u8 gText_NuzlockeGrass[] = _("Grass");
+const u8 gText_NuzlockeElectric[] = _("Electric");
+const u8 gText_NuzlockePsychic[] = _("Psychic");
+const u8 gText_NuzlockeIce[] = _("Ice");
+const u8 gText_NuzlockeDragon[] = _("Dragon");
+const u8 gText_NuzlockeDark[] = _("Dark");
+
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} SINGLE");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} DOUBLE");
 ALIGNED(4) const u8 gText_FacilityMulti[] = _("{STR_VAR_1} MULTI");

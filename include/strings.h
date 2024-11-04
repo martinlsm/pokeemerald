@@ -1301,6 +1301,29 @@ extern const u8 gText_TrainerHill2F[];
 extern const u8 gText_TrainerHill3F[];
 extern const u8 gText_TrainerHill4F[];
 
+extern const u8 gText_NuzlockeDark[];
+extern const u8 gText_NuzlockeFlying[];
+extern const u8 gText_NuzlockeNormal[];
+
+extern const u8 gText_NuzlockeNormal[];
+extern const u8 gText_NuzlockeFighting[];
+extern const u8 gText_NuzlockeFlying[];
+extern const u8 gText_NuzlockePoison[];
+extern const u8 gText_NuzlockeGround[];
+extern const u8 gText_NuzlockeRock[];
+extern const u8 gText_NuzlockeBug[];
+extern const u8 gText_NuzlockeGhost[];
+extern const u8 gText_NuzlockeSteel[];
+extern const u8 gText_NuzlockeMystery[];
+extern const u8 gText_NuzlockeFire[];
+extern const u8 gText_NuzlockeWater[];
+extern const u8 gText_NuzlockeGrass[];
+extern const u8 gText_NuzlockeElectric[];
+extern const u8 gText_NuzlockePsychic[];
+extern const u8 gText_NuzlockeIce[];
+extern const u8 gText_NuzlockeDragon[];
+extern const u8 gText_NuzlockeDark[];
+
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];
 extern const u8 CableClub_Text_BattleUsingLinkCable[];

@@ -771,6 +771,28 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
     {gText_Exit},
 };
 
+static const struct MenuAction MultiChoiceList_NuzlockeType[] =
+{
+    {gText_NuzlockeNormal},
+    {gText_NuzlockeFighting},
+    {gText_NuzlockeFlying},
+    {gText_NuzlockePoison},
+    {gText_NuzlockeGround},
+    {gText_NuzlockeRock},
+    // {gText_NuzlockeBug},
+    // {gText_NuzlockeGhost},
+    // {gText_NuzlockeSteel},
+    // {gText_NuzlockeMystery},
+    // {gText_NuzlockeFire},
+    // {gText_NuzlockeWater},
+    // {gText_NuzlockeGrass},
+    // {gText_NuzlockeElectric},
+    // {gText_NuzlockePsychic},
+    // {gText_NuzlockeIce},
+    // {gText_NuzlockeDragon},
+    // {gText_NuzlockeDark}
+};
+
 static const struct MenuAction MultichoiceList_Exit[] =
 {
     {gText_Exit},
@@ -898,6 +920,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_SLATEPORT_TENT_RULES]       = MULTICHOICE(MultichoiceList_SlateportTentRules),
     [MULTI_FALLARBOR_TENT_RULES]       = MULTICHOICE(MultichoiceList_FallarborTentRules),
     [MULTI_TAG_MATCH_TYPE]             = MULTICHOICE(MultichoiceList_TagMatchType),
+    [MULTI_NUZLOCKE_TYPE]              = MULTICHOICE(MultiChoiceList_NuzlockeType),
 };
 
 const u8 *const gStdStrings[] =
