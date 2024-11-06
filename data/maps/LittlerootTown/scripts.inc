@@ -134,8 +134,7 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	releaseall
 	end
 
-LittlerootTown_Text_DisplayNuzlockeTypeNormal:
-	.string "Nuzlocke type set to NORMAL\n"
+LittlerootTown_Text_DisplayNuzlockeTypeConfirmation:
 	.string "Are you sure?$"
 
 LittlerootTown_Text_NuzlockeTypePrompt:
@@ -145,18 +144,47 @@ LittlerootTown_Text_NuzlockeTypePrompt:
 LittlerootTown_EventScript_AskForNuzlockeType::
 	msgbox LittlerootTown_Text_NuzlockeTypePrompt
 	multichoice 0, 0, MULTI_NUZLOCKE_TYPE, FALSE
-	switch VAR_RESULT
-	case TYPE_NORMAL, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
-	case 1, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
-	case 2, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
-	case 3, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
-	case 4, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
-	case 5, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	setvar VAR_0x800A, VAR_RESULT
+	call LittlerootTown_EventScript_ConfirmNuzlockeType
 	return
 
-LittlerootTown_EventScript_ChooseNuzlockeTypeNormal::
+@ TODO: Is the goto (if NO) problematic and can cause stack overflow
+@ if it is repeatedly called?
+LittlerootTown_EventScript_ConfirmNuzlockeType::
+	msgbox LittlerootTown_Text_DisplayNuzlockeTypeConfirmation
+	yesnobox 20, 8
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_EventScript_AskForNuzlockeType
+	switch VAR_0x800A
+	case TYPE_NORMAL, LittlerootTown_EventScript_SetNuzlockeTypeNormal
+	case TYPE_FIGHTING, LittlerootTown_EventScript_SetNuzlockeTypeFighting 
+	case TYPE_FLYING, LittlerootTown_EventScript_SetNuzlockeTypeFlying
+	case TYPE_POISON, LittlerootTown_EventScript_SetNuzlockeTypePoison
+	case TYPE_GROUND, LittlerootTown_EventScript_SetNuzlockeTypeGround
+	case TYPE_ROCK, LittlerootTown_EventScript_SetNuzlockeTypeRock
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypeNormal::
 	setnuzlocketype TYPE_NORMAL
-	msgbox LittlerootTown_Text_DisplayNuzlockeTypeNormal
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypeFighting::
+	setnuzlocketype TYPE_FIGHTING
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypeFlying::
+	setnuzlocketype TYPE_FLYING
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypePoison::
+	setnuzlocketype TYPE_POISON
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypeGround::
+	setnuzlocketype TYPE_GROUND
+	return
+
+LittlerootTown_EventScript_SetNuzlockeTypeRock::
+	setnuzlocketype TYPE_ROCK
 	return
 
 LittlerootTown_EventScript_GoInsideWithMom::
