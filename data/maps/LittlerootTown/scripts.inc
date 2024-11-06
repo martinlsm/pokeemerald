@@ -134,6 +134,31 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	releaseall
 	end
 
+LittlerootTown_Text_DisplayNuzlockeTypeNormal:
+	.string "Nuzlocke type set to NORMAL\n"
+	.string "Are you sure?$"
+
+LittlerootTown_Text_NuzlockeTypePrompt:
+	.string "Which type do you want to\n"
+	.string "perform the Nuzlocke run with?$"
+
+LittlerootTown_EventScript_AskForNuzlockeType::
+	msgbox LittlerootTown_Text_NuzlockeTypePrompt
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE, FALSE
+	switch VAR_RESULT
+	case TYPE_NORMAL, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	case 1, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	case 2, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	case 3, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	case 4, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	case 5, LittlerootTown_EventScript_ChooseNuzlockeTypeNormal
+	return
+
+LittlerootTown_EventScript_ChooseNuzlockeTypeNormal::
+	setnuzlocketype TYPE_NORMAL
+	msgbox LittlerootTown_Text_DisplayNuzlockeTypeNormal
+	return
+
 LittlerootTown_EventScript_GoInsideWithMom::
 	delay 15
 	playse SE_LEDGE
@@ -149,6 +174,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	delay 10
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachPlayerAtTruck
 	waitmovement 0
+	call LittlerootTown_EventScript_AskForNuzlockeType
 	msgbox LittlerootTown_Text_OurNewHomeLetsGoInside, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachDoor
