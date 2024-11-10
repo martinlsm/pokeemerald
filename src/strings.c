@@ -1240,6 +1240,7 @@ const u8 gText_NuzlockePsychic[] = _("Psychic");
 const u8 gText_NuzlockeIce[] = _("Ice");
 const u8 gText_NuzlockeDragon[] = _("Dragon");
 const u8 gText_NuzlockeDark[] = _("Dark");
+const u8 gText_NuzlockeNextPage[] = _("Next Page");
 
 ALIGNED(4) const u8 gText_FacilitySingle[] = _("{STR_VAR_1} SINGLE");
 ALIGNED(4) const u8 gText_FacilityDouble[] = _("{STR_VAR_1} DOUBLE");

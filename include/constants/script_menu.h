@@ -122,7 +122,10 @@
 #define MULTI_SLATEPORT_TENT_RULES         111
 #define MULTI_FALLARBOR_TENT_RULES         112
 #define MULTI_TAG_MATCH_TYPE               113
-#define MULTI_NUZLOCKE_TYPE                114
+#define MULTI_NUZLOCKE_TYPE_PAGE_0         114
+#define MULTI_NUZLOCKE_TYPE_PAGE_1         115
+#define MULTI_NUZLOCKE_TYPE_PAGE_2         116
+#define MULTI_NUZLOCKE_TYPE_PAGE_3         117
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0

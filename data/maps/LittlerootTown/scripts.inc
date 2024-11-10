@@ -134,58 +134,234 @@ LittlerootTown_EventScript_StepOffTruckFemale::
 	releaseall
 	end
 
-LittlerootTown_Text_DisplayNuzlockeTypeConfirmation:
-	.string "Are you sure?$"
+AskForNuzlockeType::
+	msgbox AskForNuzlockeType_Text_0
+	setvar VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 0
+AskForNuzlockeType_1:
+	switch VAR_NUZLOCKE_TYPE_SELECTED_PAGE
+	case 0, AskForNuzlockeType_5
+	case 1, AskForNuzlockeType_6
+	case 2, AskForNuzlockeType_7
+	case 3, AskForNuzlockeType_8
+AskForNuzlockeType_3:
+	compare VAR_RESULT, 0
+	goto_if_eq AskForNuzlockeType_9
+	switch VAR_NUZLOCKE_TYPE_SELECTED_PAGE
+	case 0, AskForNuzlockeType_16
+	case 1, AskForNuzlockeType_17
+	case 2, AskForNuzlockeType_18
+	case 3, AskForNuzlockeType_19
+AskForNuzlockeType_14:
+	msgbox AskForNuzlockeType_Text_18, MSGBOX_YESNO
+	compare VAR_RESULT, 1
+	goto_if_eq AskForNuzlockeType_20
+	goto AskForNuzlockeType_1
 
-LittlerootTown_Text_NuzlockeTypePrompt:
-	.string "Which type do you want to\n"
-	.string "perform the Nuzlocke run with?$"
+AskForNuzlockeType_5:
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE_PAGE_0, FALSE
+	goto AskForNuzlockeType_3
 
-LittlerootTown_EventScript_AskForNuzlockeType::
-	msgbox LittlerootTown_Text_NuzlockeTypePrompt
-	multichoice 0, 0, MULTI_NUZLOCKE_TYPE, FALSE
-	setvar VAR_0x800A, VAR_RESULT
-	call LittlerootTown_EventScript_ConfirmNuzlockeType
+AskForNuzlockeType_6:
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE_PAGE_1, FALSE
+	goto AskForNuzlockeType_3
+
+AskForNuzlockeType_7:
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE_PAGE_2, FALSE
+	goto AskForNuzlockeType_3
+
+AskForNuzlockeType_8:
+	multichoice 0, 0, MULTI_NUZLOCKE_TYPE_PAGE_3, FALSE
+	goto AskForNuzlockeType_3
+
+AskForNuzlockeType_9:
+	addvar VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 1
+	compare VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 4
+	goto_if_eq AskForNuzlockeType_12
+	goto AskForNuzlockeType_1
+
+AskForNuzlockeType_12:
+	setvar VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 0
+	goto AskForNuzlockeType_1
+
+AskForNuzlockeType_16:
+	switch VAR_RESULT
+	case 1, AskForNuzlockeType_23
+	case 2, AskForNuzlockeType_24
+	case 3, AskForNuzlockeType_25
+	case 4, AskForNuzlockeType_26
+	case 5, AskForNuzlockeType_27
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_17:
+	switch VAR_RESULT
+	case 1, AskForNuzlockeType_29
+	case 2, AskForNuzlockeType_30
+	case 3, AskForNuzlockeType_31
+	case 4, AskForNuzlockeType_32
+	case 5, AskForNuzlockeType_33
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_18:
+	switch VAR_RESULT
+	case 1, AskForNuzlockeType_35
+	case 2, AskForNuzlockeType_36
+	case 3, AskForNuzlockeType_37
+	case 4, AskForNuzlockeType_38
+	case 5, AskForNuzlockeType_39
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_19:
+	switch VAR_RESULT
+	case 1, AskForNuzlockeType_41
+	case 2, AskForNuzlockeType_42
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_20:
 	return
 
-@ TODO: Is the goto (if NO) problematic and can cause stack overflow
-@ if it is repeatedly called?
-LittlerootTown_EventScript_ConfirmNuzlockeType::
-	msgbox LittlerootTown_Text_DisplayNuzlockeTypeConfirmation
-	yesnobox 20, 8
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_EventScript_AskForNuzlockeType
-	switch VAR_0x800A
-	case TYPE_NORMAL, LittlerootTown_EventScript_SetNuzlockeTypeNormal
-	case TYPE_FIGHTING, LittlerootTown_EventScript_SetNuzlockeTypeFighting 
-	case TYPE_FLYING, LittlerootTown_EventScript_SetNuzlockeTypeFlying
-	case TYPE_POISON, LittlerootTown_EventScript_SetNuzlockeTypePoison
-	case TYPE_GROUND, LittlerootTown_EventScript_SetNuzlockeTypeGround
-	case TYPE_ROCK, LittlerootTown_EventScript_SetNuzlockeTypeRock
-	return
-
-LittlerootTown_EventScript_SetNuzlockeTypeNormal::
+AskForNuzlockeType_23:
 	setnuzlocketype TYPE_NORMAL
-	return
+	msgbox AskForNuzlockeType_Text_1
+	goto AskForNuzlockeType_14
 
-LittlerootTown_EventScript_SetNuzlockeTypeFighting::
+AskForNuzlockeType_24:
 	setnuzlocketype TYPE_FIGHTING
-	return
+	msgbox AskForNuzlockeType_Text_2
+	goto AskForNuzlockeType_14
 
-LittlerootTown_EventScript_SetNuzlockeTypeFlying::
+AskForNuzlockeType_25:
 	setnuzlocketype TYPE_FLYING
-	return
+	msgbox AskForNuzlockeType_Text_3
+	goto AskForNuzlockeType_14
 
-LittlerootTown_EventScript_SetNuzlockeTypePoison::
+AskForNuzlockeType_26:
 	setnuzlocketype TYPE_POISON
-	return
+	msgbox AskForNuzlockeType_Text_4
+	goto AskForNuzlockeType_14
 
-LittlerootTown_EventScript_SetNuzlockeTypeGround::
+AskForNuzlockeType_27:
 	setnuzlocketype TYPE_GROUND
-	return
+	msgbox AskForNuzlockeType_Text_5
+	goto AskForNuzlockeType_14
 
-LittlerootTown_EventScript_SetNuzlockeTypeRock::
+AskForNuzlockeType_29:
 	setnuzlocketype TYPE_ROCK
-	return
+	msgbox AskForNuzlockeType_Text_6
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_30:
+	setnuzlocketype TYPE_BUG
+	msgbox AskForNuzlockeType_Text_7
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_31:
+	setnuzlocketype TYPE_GHOST
+	msgbox AskForNuzlockeType_Text_8
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_32:
+	setnuzlocketype TYPE_STEEL
+	msgbox AskForNuzlockeType_Text_9
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_33:
+	setnuzlocketype TYPE_FIRE
+	msgbox AskForNuzlockeType_Text_10
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_35:
+	setnuzlocketype TYPE_WATER
+	msgbox AskForNuzlockeType_Text_11
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_36:
+	setnuzlocketype TYPE_GRASS
+	msgbox AskForNuzlockeType_Text_12
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_37:
+	setnuzlocketype TYPE_ELECTRIC
+	msgbox AskForNuzlockeType_Text_13
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_38:
+	setnuzlocketype TYPE_PSYCHIC
+	msgbox AskForNuzlockeType_Text_14
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_39:
+	setnuzlocketype TYPE_ICE
+	msgbox AskForNuzlockeType_Text_15
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_41:
+	setnuzlocketype TYPE_DRAGON
+	msgbox AskForNuzlockeType_Text_16
+	goto AskForNuzlockeType_14
+
+AskForNuzlockeType_42:
+	setnuzlocketype TYPE_DARK
+	msgbox AskForNuzlockeType_Text_17
+	goto AskForNuzlockeType_14
+
+
+AskForNuzlockeType_Text_0:
+	.string "Which type do you want to perform the\n"
+	.string "Nuzlocke run with?$"
+
+AskForNuzlockeType_Text_1:
+	.string "Normal type selected$"
+
+AskForNuzlockeType_Text_2:
+	.string "Fighting type selected$"
+
+AskForNuzlockeType_Text_3:
+	.string "Flying type selected$"
+
+AskForNuzlockeType_Text_4:
+	.string "Poison type selected$"
+
+AskForNuzlockeType_Text_5:
+	.string "Ground type selected$"
+
+AskForNuzlockeType_Text_6:
+	.string "Rock type selected$"
+
+AskForNuzlockeType_Text_7:
+	.string "Bug type selected$"
+
+AskForNuzlockeType_Text_8:
+	.string "Ghost type selected$"
+
+AskForNuzlockeType_Text_9:
+	.string "Steel type selected$"
+
+AskForNuzlockeType_Text_10:
+	.string "Fire type selected$"
+
+AskForNuzlockeType_Text_11:
+	.string "Water type selected$"
+
+AskForNuzlockeType_Text_12:
+	.string "Grass type selected$"
+
+AskForNuzlockeType_Text_13:
+	.string "Electric type selected$"
+
+AskForNuzlockeType_Text_14:
+	.string "Psychic type selected$"
+
+AskForNuzlockeType_Text_15:
+	.string "Ice type selected$"
+
+AskForNuzlockeType_Text_16:
+	.string "Dragon type selected$"
+
+AskForNuzlockeType_Text_17:
+	.string "Dark type selected$"
+
+AskForNuzlockeType_Text_18:
+	.string "Are you sure?$"
 
 LittlerootTown_EventScript_GoInsideWithMom::
 	delay 15
@@ -202,7 +378,7 @@ LittlerootTown_EventScript_GoInsideWithMom::
 	delay 10
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachPlayerAtTruck
 	waitmovement 0
-	call LittlerootTown_EventScript_AskForNuzlockeType
+	call AskForNuzlockeType
 	msgbox LittlerootTown_Text_OurNewHomeLetsGoInside, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_MOM, LittlerootTown_Movement_MomApproachDoor

@@ -1,0 +1,102 @@
+script AskForNuzlockeType {
+	msgbox(format("Which type do you want to perform the Nuzlocke run with?"))
+
+    setvar(VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 0)
+
+    while {
+        switch (var(VAR_NUZLOCKE_TYPE_SELECTED_PAGE)) {
+            case 0:
+                multichoice(0, 0, MULTI_NUZLOCKE_TYPE_PAGE_0, FALSE)
+            case 1:
+                multichoice(0, 0, MULTI_NUZLOCKE_TYPE_PAGE_1, FALSE)
+            case 2:
+                multichoice(0, 0, MULTI_NUZLOCKE_TYPE_PAGE_2, FALSE)
+            case 3:
+                multichoice(0, 0, MULTI_NUZLOCKE_TYPE_PAGE_3, FALSE)
+        }
+
+        if (var(VAR_RESULT) == 0) {
+            // User pressed the next page button
+            addvar(VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 1)
+            if (var(VAR_NUZLOCKE_TYPE_SELECTED_PAGE) == 4) {
+                setvar(VAR_NUZLOCKE_TYPE_SELECTED_PAGE, 0)
+            }
+        } else {
+            switch (var(VAR_NUZLOCKE_TYPE_SELECTED_PAGE)) {
+            case 0:
+                // User selected from page 0
+                switch (var(VAR_RESULT)) {
+                case 1:
+                    setnuzlocketype(TYPE_NORMAL)
+                    msgbox("Normal type selected")
+                case 2:
+                    setnuzlocketype(TYPE_FIGHTING)
+                    msgbox("Fighting type selected")
+                case 3:
+                    setnuzlocketype(TYPE_FLYING)
+                    msgbox("Flying type selected")
+                case 4:
+                    setnuzlocketype(TYPE_POISON)
+                    msgbox("Poison type selected")
+                case 5:
+                    setnuzlocketype(TYPE_GROUND)
+                    msgbox("Ground type selected")
+                }
+            case 1:
+                // User selected from page 1
+                switch (var(VAR_RESULT)) {
+                case 1:
+                    setnuzlocketype(TYPE_ROCK)
+                    msgbox("Rock type selected")
+                case 2:
+                    setnuzlocketype(TYPE_BUG)
+                    msgbox("Bug type selected")
+                case 3:
+                    setnuzlocketype(TYPE_GHOST)
+                    msgbox("Ghost type selected")
+                case 4:
+                    setnuzlocketype(TYPE_STEEL)
+                    msgbox("Steel type selected")
+                case 5:
+                    setnuzlocketype(TYPE_FIRE)
+                    msgbox("Fire type selected")
+                }
+            case 2:
+                // User selected from page 2
+                switch (var(VAR_RESULT)) {
+                case 1:
+                    setnuzlocketype(TYPE_WATER)
+                    msgbox("Water type selected")
+                case 2:
+                    setnuzlocketype(TYPE_GRASS)
+                    msgbox("Grass type selected")
+                case 3:
+                    setnuzlocketype(TYPE_ELECTRIC)
+                    msgbox("Electric type selected")
+                case 4:
+                    setnuzlocketype(TYPE_PSYCHIC)
+                    msgbox("Psychic type selected")
+                case 5:
+                    setnuzlocketype(TYPE_ICE)
+                    msgbox("Ice type selected")
+                }
+            case 3:
+                // User selected from page 3
+                switch (var(VAR_RESULT)) {
+                case 1:
+                    setnuzlocketype(TYPE_DRAGON)
+                    msgbox("Dragon type selected")
+                case 2:
+                    setnuzlocketype(TYPE_DARK)
+                    msgbox("Dark type selected")
+                }
+            }
+
+            msgbox("Are you sure?", MSGBOX_YESNO)
+            if (var(VAR_RESULT) == 1) {
+                break
+            }
+        }
+    }
+
+}

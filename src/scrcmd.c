@@ -2308,7 +2308,7 @@ bool8 ScrCmd_warpwhitefade(struct ScriptContext *ctx)
 
 bool8 ScrCmd_setnuzlocketype(struct ScriptContext *ctx)
 {
-    u8 type = VarGet(ScriptReadByte(ctx));
+    u8 type = ScriptReadByte(ctx);
     gSaveBlock2Ptr->nuzlockeType = type;
-    return TRUE;
+    return FALSE;
 }

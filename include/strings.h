@@ -1323,6 +1323,7 @@ extern const u8 gText_NuzlockePsychic[];
 extern const u8 gText_NuzlockeIce[];
 extern const u8 gText_NuzlockeDragon[];
 extern const u8 gText_NuzlockeDark[];
+extern const u8 gText_NuzlockeNextPage[];
 
 // Cable Club multichoice text
 extern const u8 CableClub_Text_TradeUsingLinkCable[];
