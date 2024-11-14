@@ -138,15 +138,17 @@ endif
 AUTO_GEN_TARGETS :=
 include make_tools.mk
 # Tool executables
-GFX       := $(TOOLS_DIR)/gbagfx/gbagfx$(EXE)
-AIF       := $(TOOLS_DIR)/aif2pcm/aif2pcm$(EXE)
-MID       := $(TOOLS_DIR)/mid2agb/mid2agb$(EXE)
-SCANINC   := $(TOOLS_DIR)/scaninc/scaninc$(EXE)
-PREPROC   := $(TOOLS_DIR)/preproc/preproc$(EXE)
-RAMSCRGEN := $(TOOLS_DIR)/ramscrgen/ramscrgen$(EXE)
-FIX       := $(TOOLS_DIR)/gbafix/gbafix$(EXE)
-MAPJSON   := $(TOOLS_DIR)/mapjson/mapjson$(EXE)
-JSONPROC  := $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
+GFX        := $(TOOLS_DIR)/gbagfx/gbagfx$(EXE)
+AIF        := $(TOOLS_DIR)/aif2pcm/aif2pcm$(EXE)
+MID        := $(TOOLS_DIR)/mid2agb/mid2agb$(EXE)
+SCANINC    := $(TOOLS_DIR)/scaninc/scaninc$(EXE)
+PREPROC    := $(TOOLS_DIR)/preproc/preproc$(EXE)
+RAMSCRGEN  := $(TOOLS_DIR)/ramscrgen/ramscrgen$(EXE)
+FIX        := $(TOOLS_DIR)/gbafix/gbafix$(EXE)
+MAPJSON    := $(TOOLS_DIR)/mapjson/mapjson$(EXE)
+JSONPROC   := $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
+# XXX: Move to $(TOOLS_DIR)
+PORYSCRIPT := /usr/bin/poryscript$(EXE)
 
 PERL := perl
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c
@@ -262,6 +264,7 @@ include map_data_rules.mk
 include spritesheet_rules.mk
 include json_data_rules.mk
 include audio_rules.mk
+include poryscript_rules.mk
 
 # NOTE: Tools must have been built prior (FIXME)
 # so you can't really call this rule directly
