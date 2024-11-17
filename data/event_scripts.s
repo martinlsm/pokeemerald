@@ -577,7 +577,7 @@ gStdScripts_End::
 	.include "data/scripts/new_game.inc"
 	.include "data/scripts/hall_of_fame.inc"
 
-    .include "data/scripts/gen/nuzlocketype.inc"
+    .include "data/scripts/gen/nuzlocketype.pory.inc"
 
 EventScript_WhiteOut::
 	call EverGrandeCity_HallOfFame_EventScript_ResetEliteFour

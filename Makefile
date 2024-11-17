@@ -147,8 +147,7 @@ RAMSCRGEN  := $(TOOLS_DIR)/ramscrgen/ramscrgen$(EXE)
 FIX        := $(TOOLS_DIR)/gbafix/gbafix$(EXE)
 MAPJSON    := $(TOOLS_DIR)/mapjson/mapjson$(EXE)
 JSONPROC   := $(TOOLS_DIR)/jsonproc/jsonproc$(EXE)
-# XXX: Move to $(TOOLS_DIR)
-PORYSCRIPT := /usr/bin/poryscript$(EXE)
+PORYSCRIPT := $(TOOLS_DIR)/poryscript/poryscript$(EXE)
 
 PERL := perl
 SHA1 := $(shell { command -v sha1sum || command -v shasum; } 2>/dev/null) -c

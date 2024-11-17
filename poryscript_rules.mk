@@ -1,6 +1,7 @@
-AUTO_GEN_TARGETS += $(DATA_ASM_SUBDIR)/scripts/gen/nuzlocketype.inc
+PORY_FILES := $(wildcard poryscripts/*.pory)
+PORY_INC_FILES := $(patsubst poryscripts/%.pory,$(DATA_ASM_SUBDIR)/scripts/gen/%.pory.inc,$(PORY_FILES))
 
-# XXX: Refactor paths
-# XXX: Fix problem that gen folder don't have to be created manually with mkdir
-$(DATA_ASM_SUBDIR)/scripts/gen/nuzlocketype.inc: poryscripts/nuzlocketype.pory
-	$(PORYSCRIPT) -lm=false -cc /poryscript-linux/command_config.json -fc /poryscript-linux/font_config.json -i /pokeemerald/poryscripts/nuzlocketype.pory -o /pokeemerald/data/scripts/gen/nuzlocketype.inc
+AUTO_GEN_TARGETS += $(PORY_INC_FILES)
+
+$(DATA_ASM_SUBDIR)/scripts/gen/%.pory.inc: poryscripts/%.pory
+	$(PORYSCRIPT) -lm=false -cc $(TOOLS_DIR)/poryscript/command_config.json -fc $(TOOLS_DIR)/poryscript/font_config.json -i $< -o $@
